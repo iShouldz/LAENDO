@@ -4,6 +4,16 @@
       .custom-navbar {
           background-color: rgba(69,1,0,1);
       }
+      .custom-footer {
+          background-color: rgba(69,1,0,1);
+          color: #fff;
+          padding: 20px 0;
+      }
+      .wrapper {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+      }
   </style>
   <head>
     <title>LAENDO</title>
@@ -48,4 +58,7 @@
 
   <%= yield %>
   </body>
+  <footer class="custom-footer text-center fixed-bottom">
+    <p>&copy; 2023 LAENDO. Todos os direitos reservados.</p>
+  </footer>
 </html>
