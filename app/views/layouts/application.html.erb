@@ -31,7 +31,7 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
     <%= link_to home_index_path do %>
-      <img src="<%= asset_path('logo/logo.jpeg') %>" style="width: 50px; height: auto;" class="img-fluid" alt="Logo">
+      <img src="<%= asset_path('logo/logo.png') %>" style="width: 50px; height: auto;" class="img-fluid" alt="Logo">
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -39,13 +39,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <%= link_to "Posts", posts_path, class: "nav-item"%>
+          <%= link_to "Posts", posts_path, class: "nav-link text-warning" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sobre", posts_path, class: "nav-item"%>
+          <%= link_to "Sobre", posts_path, class: "nav-link text-warning"%>
         </li>
         <li class="nav-item">
-          <%= link_to "Contato", posts_path, class: "nav-item"%>
+          <%= link_to "Contato", posts_path, class: "nav-link text-warning"%>
         </li>
       </ul>
     </div>
