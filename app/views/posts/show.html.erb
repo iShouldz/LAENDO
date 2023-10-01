@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @post %>
+
+<h2>Comentarios!</h2>
+<% @post.comentarios.each do |comentario| %>
+  <p>
+    Autor: <%=comentario.autor %>
+  </p>
+
+  <p>
+    Comentario: <%=comentario.content %>
+  </p>
+<% end %>
+
+
+<h3>Adicione comentarios ao post!</h3>
+<%= form_for([@post, @post.comentarios.build]) do |f| %>
+  <div class="field">
+    <%= f.label :autor %><br>
+    <%= f.text_field :autor %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %><br>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <%= link_to "Back to posts", posts_path %>
+
+  <%= button_to "Destroy this post", @post, method: :delete %>
+  <%= link_to "home", home_index_path %>
+</div>
