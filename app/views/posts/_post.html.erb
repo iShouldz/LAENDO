@@ -7,6 +7,9 @@
 <div id="<%= dom_id post %>" class="card mt-4 text-center custom-card-margin">
   <div class="card-body">
     <h5 class="card-title"><strong>Titulo:</strong> <%= post.title %></h5>
-    <p class="card-text"><%= post.content %></p>
+    <p class="card-text"><%= post.content.html_safe %></p>
+    <p class="card-text"><%= post.summary %></p>
+    <p class="card-text"><%= post.author %></p>
+    <p class="card-text"><%= post.tags %></p>
   </div>
 </div>

@@ -48,6 +48,24 @@
           <%= form.text_area :content, class: "form-control h-auto", rows: 5 %>
         </div>
 
+        <div>
+          <%= form.label "Resumo", class: "text-center" %>
+          <p>Escreva um resumo interessante para as pessoas se interessarem!</p>
+          <%= form.text_area :summary, class: "form-control h-auto", rows: 5 %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label "Autor", class: "text-center" %>
+          <p>Nada melhor que receber creditos pelo seu conteudo!😉</p>
+          <%= form.text_field :author, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label "Tags", class: "text-center" %>
+          <p>Adicione palavras chave para que encontrem o que você escreveu!😉</p>
+          <%= form.text_field :author, class: "form-control" %>
+        </div>
+
         <div class="form-group text-center">
           <%= form.submit "Publicar post!", class: "btn btn-custom-primary text-gold" %>
 

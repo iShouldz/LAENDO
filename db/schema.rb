@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_225441) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_02_144244) do
   create_table "comentarios", force: :cascade do |t|
     t.string "autor"
     t.text "content"
@@ -25,6 +25,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_225441) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "summary"
+    t.string "author"
+    t.string "tags"
   end
 
   add_foreign_key "comentarios", "posts"
