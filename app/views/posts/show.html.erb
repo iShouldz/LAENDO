@@ -13,27 +13,47 @@
     .text-gold:hover {
         color: white;
     }
+    .texta{
+        text-align: justify;
+        padding-left: 20px;
+    }
+    .custom-card-margin {
+        margin-left: 15rem; /* Altere o valor conforme necessário */
+        margin-right: 15rem; /* Altere o valor conforme necessário */
+    }
 </style>
 
 <p style="color: green"><%= notice %></p>
-
-<%= render @post %>
+<div id="<%= dom_id @post %>" class="card mt-4 text-center custom-card-margin">
+  <div class="card-body">
+    <h5 class="card-title", style="font-size: 30px; font-style: normal"><%= @post.title %></h5>
+    <p class="card-text", style="font-size: 12px;font-style: italic">Por: <%= @post.author %></p>
+    <p class="card-text"><%= @post.content %></p>
+  </div>
+</div>
 
 <div class="row justify-content-center">
   <div class="col-md-6">
-    <h1 class="text-center mt-4 mb-3">Comentarios</h1>
+    <h3 class="text-center mt-4 mb-3"><strong>Comentarios</strong></h3>
     <p class="text-center mt-4 mb-3">Adicione comentarios a vontade</p>
     <hr class="my-4 h-auto">
   </div>
 </div>
 <% @post.comentarios.each do |comentario| %>
-  <p>
-    Autor: <%=comentario.autor %>
-  </p>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <p>
+          Autor: <%=comentario.autor %>
+        </p>
 
-  <p>
-    Comentario: <%=comentario.content %>
-  </p>
+        <p>
+          Comentario: <%=comentario.content %>
+        </p>
+        <hr class="my-4 h-auto">
+      </div>
+    </div>
+  </div>
 <% end %>
 
 
@@ -62,7 +82,7 @@
   <div class="btn-group text-center" role="group" aria-label="Basic example">
     <%= link_to "Editar publicação", edit_post_path(@post), class: "btn btn-custom-primary text-gold" %>
 
-    <%= link_to "Retornar aos posts", posts_path, class: "btn btn-custom-primary text-gold" %>
+    <%= link_to "Retornar aos post", posts_path, class: "btn btn-custom-primary text-gold" %>
 
     <%= button_to "Apagar posts", @post, method: :delete, class: "btn btn-custom-primary text-gold" %>
     <%= link_to "Pagina inicial", home_index_path, class: "btn btn-custom-primary text-gold" %>
