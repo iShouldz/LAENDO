@@ -80,11 +80,14 @@
 
 <div class="text-center">
   <div class="btn-group text-center" role="group" aria-label="Basic example">
-    <%= link_to "Editar publicação", edit_post_path(@post), class: "btn btn-custom-primary text-gold" %>
+    <% if user_signed_in? %>
+      <%= link_to "Editar publicação", edit_post_path(@post), class: "btn btn-custom-primary text-gold" %>
+      <%= button_to "Apagar posts", @post, method: :delete, class: "btn btn-custom-primary text-gold" %>
+
+  <%end %>
 
     <%= link_to "Retornar aos post", posts_path, class: "btn btn-custom-primary text-gold" %>
 
-    <%= button_to "Apagar posts", @post, method: :delete, class: "btn btn-custom-primary text-gold" %>
     <%= link_to "Pagina inicial", home_index_path, class: "btn btn-custom-primary text-gold" %>
   </div>
 </div>
