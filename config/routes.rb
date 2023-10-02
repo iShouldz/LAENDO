@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :create, :edit, :update] do
       resources :comentarios, only: [:update, :destroy]
     end
+    resource :my_account
   end
 
   # Ações index e show ficam acessíveis para todos os usuários, mesmo não autenticados
