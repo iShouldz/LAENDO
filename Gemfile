@@ -45,7 +45,7 @@ gem 'bootstrap'
 gem 'simple_form'
 
 gem 'carrierwave'
-
+gem 'devise'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
