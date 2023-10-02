@@ -1,4 +1,4 @@
-<style>
+<!--<style>
   h1{
       text-align: center;
       color: cornflowerblue;
@@ -30,3 +30,67 @@
   <%= link_to "Visualizar posts!", posts_path %>
 </div>
 
+-->
+
+<style>
+    .btn-custom-primary {
+        background-color: rgba(69,1,0,1);
+        border-color: rgba(69,1,0,1);
+    }
+    .btn-custom-primary:hover {
+        background-color: rgba(50,1,0,1); /* Cor alternativa ao passar o mouse */
+        border-color: rgba(50,1,0,1);
+    }
+    .text-gold {
+        color: gold;
+    }
+    .text-gold:hover {
+        color: white;
+    }
+</style>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Destaque -->
+      <div class="jumbotron">
+        <div class="d-flex align-items-center">
+          <h1 class="display-4 mr-3">LAENDO</h1>
+          <img src="<%= asset_path('logo/logo.png') %>" style="width: 100px; height: auto;" class="img-fluid ml-auto" alt="Logo">
+        </div>
+        <p class="lead">Liga Acadêmica de Endodontia- ASCES-UNITA</p>
+        <hr class="my-4">
+        <p>📍Asces-Unita
+          🗓️2023.2
+          📬 laendoascesunita@gmail.com
+          Orientadores: @silvafilhojoaomanoel | @ju_bezerra.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <!-- Barra lateral (opcional) -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Últimas publicações</h5>
+          <div id="posts">
+            <% @posts.each do |post| %>
+              <div id="<%= dom_id post %>" class="card mt-4 text-center custom-card-margin">
+                <div class="card-body">
+                  <h5 class="card-title", style="font-size: 30px; font-style: normal"><%= post.title %></h5>
+                  <p class="card-text", style="font-size: 12px;font-style: italic">Por: <%= post.author %></p>
+                  <p class="card-text">Resumo: <%= post.summary %></p>
+                  <p class="card-text" >Tags: <strong><%= post.tags %></strong></p>
+
+                  <div class="text-center">
+                    <br>
+                    <%= link_to "Ler mais", post, class: "btn btn-custom-primary text-gold" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
