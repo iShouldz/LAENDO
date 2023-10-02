@@ -1,12 +1,12 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= post.content %>
-  </p>
-
+<style>
+    .custom-card-margin {
+        margin-left: 15rem; /* Altere o valor conforme necessário */
+        margin-right: 15rem; /* Altere o valor conforme necessário */
+    }
+</style>
+<div id="<%= dom_id post %>" class="card mt-4 text-center custom-card-margin">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Titulo:</strong> <%= post.title %></h5>
+    <p class="card-text"><%= post.content %></p>
+  </div>
 </div>
