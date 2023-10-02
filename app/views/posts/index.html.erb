@@ -38,8 +38,10 @@
     <div id="<%= dom_id post %>" class="card mt-4 text-center custom-card-margin">
       <div class="card-body">
         <h5 class="card-title", style="font-size: 30px; font-style: normal"><%= post.title %></h5>
-        <p class="card-text"><%= post.summary %></p>
         <p class="card-text", style="font-size: 12px;font-style: italic">Por: <%= post.author %></p>
+        <p class="card-text">Resumo: <%= post.summary %></p>
+        <p class="card-text" >Tags: <strong><%= post.tags %></strong></p>
+
         <div class="text-center">
           <br>
           <%= link_to "Ler mais", post, class: "btn btn-custom-primary text-gold" %>
@@ -49,5 +51,8 @@
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path %>
-<%= link_to "home", home_index_path %>
+<div class="text-center">
+  <br>
+  <%= link_to "Novo post", new_post_path, class: "btn btn-custom-primary text-gold text-center" %>
+  <%= link_to "Pagina inicial", home_index_path,  class: "btn btn-custom-primary text-gold" %>
+</div>
