@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   # Permitindo acesso apenas para usuários autenticados nas ações de criar e editar posts
   authenticate :user do
     resources :posts, only: [:new, :create, :edit, :update] do
-      resources :comentarios
+      resources :comentarios, only: [:update, :destroy]
     end
   end
 
   # Ações index e show ficam acessíveis para todos os usuários, mesmo não autenticados
   resources :posts, only: [:index, :show] do
-    resources :comentarios
+    resources :comentarios, only: [:index, :show, :create, :new]
   end
 
   root 'home#index'
