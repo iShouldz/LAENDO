@@ -21,6 +21,12 @@
     .text-gold:hover {
         color: white;
     }
+    .custom-card-padding {
+        padding: 10px; /* Ajuste o valor conforme necessário */
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
 </style>
 
 <p style="color: green"><%= notice %></p>
@@ -33,23 +39,26 @@
   </div>
 </div>
 
-<div id="posts">
+<div id="posts" class="row">
   <% @posts.each do |post| %>
-    <div id="<%= dom_id post %>" class="card mt-4 text-center custom-card-margin">
-      <div class="card-body">
-        <h5 class="card-title", style="font-size: 30px; font-style: normal"><%= post.title %></h5>
-        <p class="card-text", style="font-size: 12px;font-style: italic">Por: <%= post.author %></p>
-        <p class="card-text">Resumo: <%= post.summary %></p>
-        <p class="card-text" >Tags: <strong><%= post.tags %></strong></p>
+    <div class="col-md-4">
+      <div id="<%= dom_id post %>" class="card mt-4 text-center custom-card-padding">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 30px; font-style: normal"><%= post.title %></h5>
+          <p class="card-text" style="font-size: 12px; font-style: italic">Por: <%= post.author %></p>
+          <p class="card-text">Resumo: <%= post.summary %></p>
+          <p class="card-text">Tags: <strong><%= post.tags %></strong></p>
 
-        <div class="text-center">
-          <br>
-          <%= link_to "Ler mais", post, class: "btn btn-custom-primary text-gold" %>
+          <div class="text-center">
+            <%= link_to "Ler mais", post, class: "btn btn-custom-primary text-gold" %>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
+
 
 <div class="text-center">
   <br>
