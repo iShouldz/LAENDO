@@ -1,13 +1,51 @@
+<style>
+    .custom-card-margin {
+        margin-left: 15rem; /* Altere o valor conforme necessário */
+        margin-right: 15rem; /* Altere o valor conforme necessário */
+    }
+    .texta{
+        text-align: justify;
+        padding-left: 20px;
+    }
+    .btn-custom-primary {
+        background-color: rgba(69,1,0,1);
+        border-color: rgba(69,1,0,1);
+    }
+    .btn-custom-primary:hover {
+        background-color: rgba(50,1,0,1); /* Cor alternativa ao passar o mouse */
+        border-color: rgba(50,1,0,1);
+    }
+    .text-gold {
+        color: gold;
+    }
+    .text-gold:hover {
+        color: white;
+    }
+</style>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Posts</h1>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h1 class="text-center mt-4 mb-3">Publicações!</h1>
+    <hr class="my-4 h-auto">
+
+  </div>
+</div>
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <div id="<%= dom_id post %>" class="card mt-4 text-center custom-card-margin">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Titulo:</strong> <%= post.title %></h5>
+        <p class="card-text"><%= post.summary %></p>
+        <p class="card-text"><%= post.author %></p>
+        <div class="text-center">
+          <br>
+          <%= link_to "Ler mais", post, class: "btn btn-custom-primary text-gold" %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
 
