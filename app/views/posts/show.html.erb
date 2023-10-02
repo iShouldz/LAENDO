@@ -1,8 +1,31 @@
+<style>
+    .btn-custom-primary {
+        background-color: rgba(69,1,0,1);
+        border-color: rgba(69,1,0,1);
+    }
+    .btn-custom-primary:hover {
+        background-color: rgba(50,1,0,1); /* Cor alternativa ao passar o mouse */
+        border-color: rgba(50,1,0,1);
+    }
+    .text-gold {
+        color: gold;
+    }
+    .text-gold:hover {
+        color: white;
+    }
+</style>
+
 <p style="color: green"><%= notice %></p>
 
 <%= render @post %>
 
-<h2>Comentarios!</h2>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h1 class="text-center mt-4 mb-3">Comentarios</h1>
+    <p class="text-center mt-4 mb-3">Adicione comentarios a vontade</p>
+    <hr class="my-4 h-auto">
+  </div>
+</div>
 <% @post.comentarios.each do |comentario| %>
   <p>
     Autor: <%=comentario.autor %>
@@ -14,27 +37,34 @@
 <% end %>
 
 
-<h3>Adicione comentarios ao post!</h3>
 <%= form_for([@post, @post.comentarios.build]) do |f| %>
-  <div class="field">
-    <%= f.label :autor %><br>
-    <%= f.text_field :autor %><br>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label "Nome", class: "text-center" %><br>
+          <%= f.text_field :autor, class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.label :Comentario, class: "text-center" %><br>
+          <%= f.text_area :content, class: "form-control" %><br>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Enviar comentario!", class: "btn btn-custom-primary text-gold"%>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %><br>
+<div class="text-center">
+  <div class="btn-group text-center" role="group" aria-label="Basic example">
+    <%= link_to "Editar publicação", edit_post_path(@post), class: "btn btn-custom-primary text-gold" %>
+
+    <%= link_to "Retornar aos posts", posts_path, class: "btn btn-custom-primary text-gold" %>
+
+    <%= button_to "Apagar posts", @post, method: :delete, class: "btn btn-custom-primary text-gold" %>
+    <%= link_to "Pagina inicial", home_index_path, class: "btn btn-custom-primary text-gold" %>
   </div>
-
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
-  <%= link_to "home", home_index_path %>
 </div>
