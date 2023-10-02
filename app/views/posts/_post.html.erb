@@ -3,11 +3,16 @@
         margin-left: 15rem; /* Altere o valor conforme necessário */
         margin-right: 15rem; /* Altere o valor conforme necessário */
     }
+    .texta{
+        text-align: justify;
+        padding-left: 20px;
+    }
 </style>
 <div id="<%= dom_id post %>" class="card mt-4 text-center custom-card-margin">
   <div class="card-body">
     <h5 class="card-title"><strong>Titulo:</strong> <%= post.title %></h5>
-    <p class="card-text"><%= post.content.html_safe %></p>
+    <p class="card-text texta"><%= simple_format(post.content) %></p>
+
     <p class="card-text"><%= post.summary %></p>
     <p class="card-text"><%= post.author %></p>
     <p class="card-text"><%= post.tags %></p>
