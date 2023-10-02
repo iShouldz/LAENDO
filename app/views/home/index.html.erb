@@ -66,8 +66,12 @@
         <hr class="my-4">
         <p>📍Asces-Unita
           🗓️2023.2
-          📬 laendoascesunita@gmail.com
-          Orientadores: @silvafilhojoaomanoel | @ju_bezerra.</p>
+          📬 <%= mail_to "laendoascesunita@gmail.com", "laendoascesunita@gmail.com" %>
+          </p>
+        <p>
+          Orientadores: <a href="https://www.instagram.com/silvafilhojoaomanoel/" >@silvafilhojoaomanoel</a>
+          | <a href="https://www.instagram.com/ju_bezerra/">@ju_bezerra </a>
+        </p>
         <br>
         <div class="justify-content-center d-flex">
           <%= link_to "Conhecer mais", posts_path, class: "btn btn-custom-primary text-gold" %>
