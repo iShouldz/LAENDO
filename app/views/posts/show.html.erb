@@ -28,7 +28,7 @@
   <div class="card-body">
     <h5 class="card-title", style="font-size: 30px; font-style: normal"><%= @post.title %></h5>
     <p class="card-text", style="font-size: 12px;font-style: italic">Por: <%= @post.author %></p>
-    <p class="card-text"><%= @post.content %></p>
+    <p class="card-text"><%= simple_format(@post.content) %></p>
   </div>
 </div>
 
